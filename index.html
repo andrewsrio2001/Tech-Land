@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Andrews M - DevOps & Multi-Cloud Engineer</title>
+<title>Techeron - Andrews M | DevOps & Multi-Cloud Engineer</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
@@ -12,7 +12,6 @@
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-papbM+xL5dqB1sK1kxypcUyUrVf5+nDjRpi4+dZ4lu1/0RbHwYHxP6Km2Bbq85UgBvlnD7fksfT54N7m+guPdw=="
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
@@ -40,23 +39,23 @@
 
   /* Themes */
   .light-theme {
-    --background-primary: #f9fafb;
+    --background-primary: #f3f6fd;
     --background-secondary: #ffffff;
-    --foreground-primary: #1f2937;
-    --foreground-secondary: #4b5563;
-    --accent: #3b82f6;
-    --accent-dark: #2563eb;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --foreground-primary: #212b48;
+    --foreground-secondary: #4b5c8a;
+    --accent: #5c6ac4; /* Techeron blue */
+    --accent-dark: #36429f;
+    --shadow: rgba(92, 106, 196, 0.25);
     --white: #fff;
   }
   .dark-theme {
-    --background-primary: #1f2937;
-    --background-secondary: #374151;
-    --foreground-primary: #f9fafb;
-    --foreground-secondary: #d1d5db;
-    --accent: #3b82f6;
-    --accent-dark: #2563eb;
-    --shadow: rgba(0, 0, 0, 0.5);
+    --background-primary: #1b1f35;
+    --background-secondary: #2b3063;
+    --foreground-primary: #f3f6fd;
+    --foreground-secondary: #a4adcf;
+    --accent: #5c6ac4;
+    --accent-dark: #36429f;
+    --shadow: rgba(92, 106, 196, 0.6);
     --white: #fff;
   }
 
@@ -282,8 +281,8 @@
   <button id="themeToggle" aria-label="Toggle dark/light theme">Dark Mode</button>
 
   <header>
-    <h1>Andrews M</h1>
-    <p><em>DevOps & Multi-Cloud Engineer | AWS & Azure | CI/CD Pipelines | Kubernetes | Terraform | Ansible | Jenkins | GitHub Actions | Docker | Linux | Python | Microsoft Intune & Defender | Prometheus & Grafana</em></p>
+    <h1>Techeron</h1>
+    <p><em>Andrews M — DevOps & Multi-Cloud Engineer</em></p>
   </header>
 
   <section class="contact-info" aria-label="Contact information">
@@ -297,7 +296,7 @@
   <div id="greeting" aria-live="polite"></div>
 
   <section aria-label="Current Timezones">
-    <h2>Current Time</h2>
+    <h2>Current Time Zones</h2>
     <div class="clocks">
       <div class="clock" aria-label="Current time in New York, USA">
         <h3><i class="fas fa-clock"></i> USA (New York)</h3>
@@ -314,8 +313,8 @@
     </div>
   </section>
 
-  <section aria-label="Summary">
-    <h2>Summary</h2>
+  <section aria-label="Professional Summary">
+    <h2>Professional Summary</h2>
     <p>
       Cloud & DevOps Engineer with over a year of experience in Cloud Infrastructure, Automation, Security, and Data Analytics.
       Specializing in AWS, Azure, Microsoft 365, and Security solutions, ensuring scalability, reliability, cost optimization, and efficiency in IT operations.
@@ -356,14 +355,14 @@
   <section aria-label="Experience">
     <h2>Experience</h2>
     <article>
-      <h3>Information Technology Administrator — qBotica</h3>
+      <h3>Information Technology Administrator — Techeron</h3>
       <p><small>April 2025 - Present (9 months)</small></p>
-      <p>Managing IT infrastructure and providing cloud & endpoint management.</p>
+      <p>Managing IT infrastructure, Cloud & endpoint management for Techeron.</p>
     </article>
     <article>
-      <h3>Trainee Engineer — qBotica</h3>
+      <h3>Trainee Engineer — Techeron</h3>
       <p><small>October 2024 - March 2025 (6 months)</small></p>
-      <p>Gained hands-on experience in cloud operations and IT administration.</p>
+      <p>Gained hands-on experience in cloud operations and IT administration at Techeron.</p>
     </article>
     <article>
       <h3>Mentor — topmate.io</h3>
@@ -468,4 +467,23 @@
   function createDot() {
     const dot = document.createElement('div');
     dot.classList.add('dot');
-    const size = Math.random() * 14 + 6; //
+    const size = Math.random() * 14 + 6;
+    dot.style.width = `${size}px`;
+    dot.style.height = `${size}px`;
+    dot.style.left = `${Math.random() * 100}vw`;
+    dot.style.animationDuration = `${5 + Math.random() * 10}s`;
+    dot.style.animationDelay = `${Math.random() * 10}s`;
+    floatingDotsContainer.appendChild(dot);
+
+    setTimeout(() => {
+      dot.remove();
+    }, 16000); // remove after animation
+  }
+
+  // Add multiple dots every second
+  setInterval(() => {
+    createDot();
+  }, 1200);
+</script>
+</body>
+</html>
