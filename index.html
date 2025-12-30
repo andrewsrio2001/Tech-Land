@@ -4,80 +4,143 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Andrews M - DevOps & Multi-Cloud Engineer</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-papbM+xL5dqB1sK1kxypcUyUrVf5+nDjRpi4+dZ4lu1/0RbHwYHxP6Km2Bbq85UgBvlnD7fksfT54N7m+guPdw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
 <style>
-  /* Minimal reset and base styles */
+  /* Reset & base */
   *, *::before, *::after {
     margin: 0; padding: 0; box-sizing: border-box;
   }
   html {
-    font-family: "Inter", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    background-color: var(--background-primary);
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--background-primary);
     color: var(--foreground-primary);
-    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    max-width: 960px;
+    margin: auto;
     position: relative;
     overflow-x: hidden;
   }
 
-  /* CSS Variables for light/dark themes */
+  /* Themes */
   .light-theme {
-    --background-primary: hsl(0, 0%, 100%);
-    --foreground-primary: hsl(218, 23%, 23%);
-    --accent: hsl(229, 76%, 66%);
-    --background-secondary: hsl(0, 0%, 97%);
-    --foreground-secondary: hsl(216, 15%, 52%);
-    --white: hsl(0, 0%, 100%);
+    --background-primary: #f9fafb;
+    --background-secondary: #ffffff;
+    --foreground-primary: #1f2937;
+    --foreground-secondary: #4b5563;
+    --accent: #3b82f6;
+    --accent-dark: #2563eb;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --white: #fff;
   }
   .dark-theme {
-    --background-primary: hsl(218, 23%, 23%);
-    --foreground-primary: hsl(210, 38%, 95%);
-    --accent: hsl(229, 76%, 66%);
-    --background-secondary: hsl(220, 26%, 14%);
-    --foreground-secondary: hsl(211, 25%, 84%);
-    --white: hsl(0, 0%, 100%);
+    --background-primary: #1f2937;
+    --background-secondary: #374151;
+    --foreground-primary: #f9fafb;
+    --foreground-secondary: #d1d5db;
+    --accent: #3b82f6;
+    --accent-dark: #2563eb;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --white: #fff;
   }
 
-  body {
-    background-color: var(--background-primary);
-    color: var(--foreground-primary);
-    line-height: 1.6;
-    padding: 2rem;
-    max-width: 900px;
-    margin: auto;
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
   }
 
+  /* Typography */
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.2rem;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--accent-dark);
+    margin-bottom: 0.3rem;
+    text-align: center;
+    letter-spacing: 0.06em;
   }
   h2 {
-    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 1.8rem;
     color: var(--accent);
-    font-size: 1.5rem;
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 3px solid var(--accent);
     padding-bottom: 0.3rem;
-  }
-  p {
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
   }
-  a {
-    color: var(--accent);
-    text-decoration: none;
+  h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--foreground-secondary);
+    margin-bottom: 0.25rem;
+  }
+  p, li, time, a {
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--foreground-primary);
   }
   a:hover {
-    text-decoration: underline;
+    color: var(--accent-dark);
+  }
+  em {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--foreground-secondary);
   }
 
-  ul.skills, ul.certifications, ul.languages {
-    list-style: disc inside;
+  /* Contact Links */
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+    flex-wrap: wrap;
     margin-bottom: 1rem;
   }
-
   .contact-info a {
-    display: inline-block;
-    margin-right: 1.5rem;
+    background: var(--background-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    box-shadow: 0 4px 10px var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-dark);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-info a:hover {
+    background: var(--accent);
+    color: var(--white);
+    box-shadow: 0 6px 12px var(--accent);
+  }
+  .contact-info a i {
+    font-size: 1.2rem;
   }
 
+  /* Theme toggle button */
   button#themeToggle {
     position: fixed;
     top: 1rem;
@@ -85,58 +148,104 @@
     background: var(--accent);
     border: none;
     color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.5rem 1.4rem;
+    border-radius: 25px;
     cursor: pointer;
-    font-weight: bold;
-    z-index: 100;
-  }
-
-  /* Clocks Section */
-  .clocks {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .clock {
-    background: var(--background-secondary);
-    border-radius: 10px;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.1);
-    flex: 1 1 200px;
-    text-align: center;
-  }
-  .clock h3 {
-    margin-bottom: 0.5rem;
-    color: var(--foreground-secondary);
-  }
-  .clock time {
-    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    box-shadow: 0 4px 10px var(--shadow);
+    z-index: 100;
+    transition: background-color 0.3s ease;
+  }
+  button#themeToggle:hover {
+    background: var(--accent-dark);
   }
 
   /* Greeting */
   #greeting {
-    margin-top: 1rem;
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    color: var(--accent);
     text-align: center;
+    color: var(--accent-dark);
+    margin: 1rem 0 2rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Clocks */
+  .clocks {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .clock {
+    background: var(--background-secondary);
+    padding: 1.3rem 1.6rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px var(--shadow);
+    flex: 1 1 220px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .clock:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px var(--accent);
+  }
+  .clock h3 {
+    margin-bottom: 0.6rem;
+    color: var(--accent-dark);
+  }
+  .clock time {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    color: var(--foreground-primary);
+  }
+
+  /* Section styling */
+  section {
+    margin-bottom: 2.5rem;
+  }
+  article {
+    margin-bottom: 1.5rem;
+    background: var(--background-secondary);
+    padding: 1rem 1.3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: box-shadow 0.3s ease;
+  }
+  article:hover {
+    box-shadow: 0 10px 25px var(--accent);
+  }
+  article small {
+    font-weight: 400;
+    color: var(--foreground-secondary);
+  }
+  ul {
+    list-style: disc inside;
+    margin-bottom: 1rem;
+    color: var(--foreground-primary);
+  }
+  ul.skills li,
+  ul.languages li,
+  ul.certifications li {
+    padding: 0.15rem 0;
   }
 
   /* Motivational Quote */
   #quote {
-    margin-top: 2rem;
     font-style: italic;
-    font-size: 1.1rem;
+    font-weight: 400;
+    font-size: 1.15rem;
     text-align: center;
     color: var(--foreground-secondary);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* Subtle floating dots animation */
+  /* Floating dots */
   .floating-dots {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -148,17 +257,25 @@
     position: absolute;
     border-radius: 50%;
     background: var(--accent);
-    opacity: 0.1;
+    opacity: 0.12;
     animation-name: floatUp;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    filter: drop-shadow(0 0 2px var(--accent));
   }
   @keyframes floatUp {
-    0% { transform: translateY(100vh); opacity: 0; }
-    50% { opacity: 0.15; }
-    100% { transform: translateY(-20vh); opacity: 0; }
+    0% {
+      transform: translateY(100vh) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.15;
+    }
+    100% {
+      transform: translateY(-20vh) scale(1);
+      opacity: 0;
+    }
   }
-
 </style>
 </head>
 <body>
@@ -170,30 +287,29 @@
   </header>
 
   <section class="contact-info" aria-label="Contact information">
-    <h2>Contact</h2>
-    <p>
-      <a href="mailto:andrewsrio2001@gmail.com" target="_blank" rel="noopener">andrewsrio2001@gmail.com</a>
-      <a href="https://www.linkedin.com/in/mandrews25" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://andrewsrio2001.github.io/Portfolio/" target="_blank" rel="noopener">Portfolio</a>
-    </p>
+    <a href="mailto:andrewsrio2001@gmail.com" target="_blank" rel="noopener" title="Email"><i class="fa-solid fa-envelope"></i> Email</a>
+    <a href="https://www.linkedin.com/in/mandrews25/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://leetcode.com/u/Andrewsrio25/" target="_blank" rel="noopener" title="LeetCode"><i class="fas fa-code"></i> LeetCode</a>
+    <a href="https://www.credly.com/users/m-andrews/badges" target="_blank" rel="noopener" title="Credly Badges"><i class="fas fa-award"></i> Credly</a>
+    <a href="https://topmate.io/m_andrews" target="_blank" rel="noopener" title="Topmate"><i class="fas fa-user-astronaut"></i> Topmate</a>
   </section>
 
-  <div id="greeting"></div>
+  <div id="greeting" aria-live="polite"></div>
 
   <section aria-label="Current Timezones">
     <h2>Current Time</h2>
     <div class="clocks">
-      <div class="clock">
-        <h3>USA (New York)</h3>
-        <time id="time-ny" datetime=""></time>
+      <div class="clock" aria-label="Current time in New York, USA">
+        <h3><i class="fas fa-clock"></i> USA (New York)</h3>
+        <time id="time-ny" datetime="" aria-live="polite"></time>
       </div>
-      <div class="clock">
-        <h3>UAE (Dubai)</h3>
-        <time id="time-dubai" datetime=""></time>
+      <div class="clock" aria-label="Current time in Dubai, UAE">
+        <h3><i class="fas fa-clock"></i> UAE (Dubai)</h3>
+        <time id="time-dubai" datetime="" aria-live="polite"></time>
       </div>
-      <div class="clock">
-        <h3>India (Chennai)</h3>
-        <time id="time-chennai" datetime=""></time>
+      <div class="clock" aria-label="Current time in Chennai, India">
+        <h3><i class="fas fa-clock"></i> India (Chennai)</h3>
+        <time id="time-chennai" datetime="" aria-live="polite"></time>
       </div>
     </div>
   </section>
@@ -291,20 +407,26 @@
   });
   updateButton();
 
-  // Function to format time strings
-  function formatTime(date) {
-    return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
-  }
-
   // Update clocks with different time zones
   function updateClocks() {
-    const nyTime = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
-    const dubaiTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Dubai"});
-    const chennaiTime = new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
+    const timezones = {
+      ny: "America/New_York",
+      dubai: "Asia/Dubai",
+      chennai: "Asia/Kolkata"
+    };
 
-    document.getElementById("time-ny").textContent = new Date(nyTime).toLocaleTimeString();
-    document.getElementById("time-dubai").textContent = new Date(dubaiTime).toLocaleTimeString();
-    document.getElementById("time-chennai").textContent = new Date(chennaiTime).toLocaleTimeString();
+    for (const [id, tz] of Object.entries(timezones)) {
+      const timeEl = document.getElementById(`time-${id}`);
+      const timeStr = new Date().toLocaleTimeString("en-US", {
+        timeZone: tz,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      });
+      timeEl.textContent = timeStr;
+      timeEl.setAttribute("datetime", new Date().toISOString());
+    }
   }
   setInterval(updateClocks, 1000);
   updateClocks();
@@ -346,22 +468,4 @@
   function createDot() {
     const dot = document.createElement('div');
     dot.classList.add('dot');
-    const size = Math.random() * 12 + 8; // 8px to 20px
-    dot.style.width = `${size}px`;
-    dot.style.height = `${size}px`;
-    dot.style.left = `${Math.random() * 100}vw`;
-    dot.style.animationDuration = `${Math.random() * 8 + 6}s`; // 6-14s
-    dot.style.animationDelay = `${Math.random() * 10}s`;
-    floatingDotsContainer.appendChild(dot);
-
-    // Remove dot after animation to keep DOM light
-    setTimeout(() => {
-      floatingDotsContainer.removeChild(dot);
-    }, (parseFloat(dot.style.animationDuration) + parseFloat(dot.style.animationDelay)) * 1000);
-  }
-
-  // Spawn dots continuously
-  setInterval(createDot, 700);
-</script>
-</body>
-</html>
+    const size = Math.random() * 14 + 6; //
