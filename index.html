@@ -1,344 +1,329 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Techeron | Chennai, India</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Techeron - Innovative Tech Solutions</title>
 
-  <!-- Google Fonts: Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
 
-  <!-- Font Awesome for icons -->
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!--
+    - google font link (kept Inter for clean modern look, can change later)
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
-
-  <style>
-    :root {
-      --bg1: #020617;
-      --bg2: #0f172a;
-      --text-light: #ffffff;
-      --text-dark: #020617;
-      --subtext-light: #94a3b8;
-      --subtext-dark: #475569;
-      --button-bg-light: #ffffff;
-      --button-text-light: #020617;
-      --button-bg-dark: #111827;
-      --button-text-dark: #e0e7ff;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      background: linear-gradient(-45deg, var(--bg1), var(--bg2), #1e3a8a, #020617);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: var(--text-light);
-      transition: background 0.5s ease, color 0.5s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    body.light {
-      background: linear-gradient(-45deg, #e0e7ff, #f8fafc, #93c5fd, #e0e7ff);
-      color: var(--text-dark);
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      gap: 60px;
-    }
-
-    body.light main {
-      color: var(--text-dark);
-    }
-
-    /* Profile image */
-    .profile-container {
-      flex: 0 0 180px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeInZoom 1.2s ease forwards;
-    }
-
-    .profile-container img {
-      width: 160px;       /* fixed width */
-      height: auto;       /* keep aspect ratio */
-      border-radius: 0;   /* remove circle */
-      object-fit: contain; /* fit entire image */
-      border: none;       /* remove border */
-      box-shadow: none;   /* remove shadow */
-    }
-
-    /* Content */
-    .content {
-      flex: 1;
-      animation: fadeInUp 1.2s ease forwards;
-      max-width: 600px;
-    }
-
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      letter-spacing: 2px;
-      font-size: 3rem;
-      margin: 0 0 8px 0;
-    }
-
-    .location {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: var(--subtext-light);
-    }
-
-    body.light .location {
-      color: var(--subtext-dark);
-    }
-
-    p {
-      font-size: 1.15rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
-      color: inherit;
-    }
-
-    /* Welcome message */
-    .welcome {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      font-size: 1.25rem;
-      margin-bottom: 20px;
-      color: var(--button-text-light);
-    }
-
-    body.light .welcome {
-      color: var(--button-text-dark);
-    }
-
-    /* Contact info */
-    .contact {
-      margin-top: 30px;
-      font-size: 1rem;
-      color: var(--button-text-light);
-    }
-
-    body.light .contact {
-      color: var(--button-text-dark);
-    }
-
-    .contact h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .contact a {
-      color: inherit;
-      text-decoration: underline;
-    }
-
-    /* Social links */
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .links a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      background-color: var(--button-bg-light);
-      color: var(--button-text-light);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      min-width: 130px;
-      justify-content: center;
-    }
-
-    body.light .links a {
-      background-color: var(--button-bg-dark);
-      color: var(--button-text-dark);
-      box-shadow: none;
-    }
-
-    .links a i {
-      font-size: 1.3rem;
-    }
-
-    .links a:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 18px 35px rgba(0,0,0,0.35);
-    }
-
-    body.light .links a:hover {
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px 20px;
-      font-size: 0.9rem;
-      color: var(--subtext-light);
-    }
-
-    body.light footer {
-      color: var(--subtext-dark);
-    }
-
-    /* Toggle Button */
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      border: none;
-      color: inherit;
-      font-size: 1.6rem;
-      cursor: pointer;
-      transition: transform 0.3s;
-      z-index: 100;
-    }
-
-    .theme-toggle:hover {
-      transform: rotate(20deg);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInZoom {
-      from {opacity: 0; transform: scale(0.85);}
-      to {opacity: 1; transform: scale(1);}
-    }
-
-    /* Responsive */
-    @media (max-width: 720px) {
-      main {
-        flex-direction: column;
-        padding: 30px 15px;
-        gap: 35px;
-      }
-
-      .profile-container {
-        flex: none;
-        margin-bottom: 20px;
-      }
-
-      .profile-container img {
-        width: 140px;
-        height: auto;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      .links {
-        justify-content: center;
-      }
-
-      .links a {
-        min-width: 140px;
-        padding: 12px 18px;
-      }
-    }
-  </style>
 </head>
-<body>
 
-  <button class="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode" onclick="toggleTheme()">🌓</button>
+<body class="light-theme">
+
+  <!--
+    - #HEADER
+  -->
+
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="#">
+          <!-- Replace with Techeron logos -->
+          <img src="./assets/images/techeron-logo-light.svg" alt="Techeron logo" width="150" class="logo-light" />
+          <img src="./assets/images/techeron-logo-dark.svg" alt="Techeron logo" width="150" class="logo-dark" />
+        </a>
+
+        <div class="btn-group">
+          <button class="theme-btn theme-btn-mobile light" aria-label="Toggle Dark/Light Mode">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+          </button>
+
+          <button class="nav-menu-btn" aria-label="Open navigation menu">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="flex-wrapper">
+          <ul class="desktop-nav">
+            <li><a href="#" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">Services</a></li>
+            <li><a href="#" class="nav-link">About Us</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+
+          <button class="theme-btn theme-btn-desktop light" aria-label="Toggle Dark/Light Mode">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+          </button>
+        </div>
+
+        <div class="mobile-nav" aria-hidden="true">
+          <button class="nav-close-btn" aria-label="Close navigation menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+          <div class="wrapper">
+            <p class="h3 nav-title">Main Menu</p>
+            <ul>
+              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="h3 nav-title">Technologies</p>
+            <ul>
+              <li class="nav-item"><a href="#" class="nav-link">Automation</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Cloud</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Security</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <div class="profile-container">
-      <img src="photo.png" alt="Profile picture of M Andrews" />
-    </div>
-    <div class="content">
-      <h1>Techeron</h1>
-      <div class="location">Chennai, India 🇮🇳</div>
+    <!--
+      - #HERO SECTION
+    -->
+    <div class="hero">
+      <div class="container">
+        <div class="left">
+          <h1 class="h1">
+            Welcome to <b>Techeron</b>.
+            <br />
+            Innovative Technology Solutions
+          </h1>
 
-      <p class="welcome">
-        Welcome to Techeron! Glad you're here. Let’s connect and build something amazing together.
-      </p>
+          <p class="h3">
+            Specialized in <abbr title="Remote Monitoring and Management">RMM</abbr>, Automation, and Cloud Services
+          </p>
 
-      <p>
-        Technology enthusiast focused on coding, automation, and continuous learning.
-        Building skills, solving real-world problems, and growing every day.
-      </p>
+          <div class="btn-group">
+            <a href="#" class="btn btn-primary">Get in Touch</a>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
 
-      <div class="contact">
-        <h2>Contact Me</h2>
-        <p>📧 <a href="mailto:andrewsrio25@gmail.com?subject=Contact%20from%20Techeron%20Website">andrewsrio25@gmail.com</a></p>
-        <p>📞 +91 6383262232</p>
+        <div class="right">
+          <div class="pattern-bg"></div>
+          <div class="img-box">
+            <img src="./assets/images/hero-techeron.png" alt="Techeron Team" class="hero-img" />
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="links">
-        <a href="https://github.com/mandrews25" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/mandrews25/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://leetcode.com/u/Andrewsrio25/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile">
-          <i class="fas fa-code"></i> LeetCode
-        </a>
-        <a href="https://www.credly.com/users/m-andrews/badges" target="_blank" rel="noopener noreferrer" aria-label="Credly badges">
-          <i class="fas fa-certificate"></i> Credly
-        </a>
-        <a href="https://topmate.io/m_andrews" target="_blank" rel="noopener noreferrer" aria-label="Topmate profile">
-          <i class="fas fa-user-tie"></i> Topmate
-        </a>
+    <div class="main">
+      <div class="container">
+        <!--
+          - SERVICES SECTION
+        -->
+        <div class="blog">
+          <h2 class="h2">Our Latest Solutions</h2>
+
+          <div class="blog-card-group">
+            <!-- Example Card -->
+            <div class="blog-card">
+              <div class="blog-card-banner">
+                <img
+                  src="./assets/images/automation.png"
+                  alt="Automation Services"
+                  width="250"
+                  class="blog-banner-img"
+                />
+              </div>
+
+              <div class="blog-content-wrapper">
+                <button class="blog-topic text-tiny">Automation</button>
+
+                <h3><a href="#" class="h3">Advanced Process Automation</a></h3>
+
+                <p class="blog-text">
+                  Automate repetitive tasks to boost productivity and reduce errors with our state-of-the-art automation
+                  solutions.
+                </p>
+
+                <div class="wrapper-flex">
+                  <div class="profile-wrapper">
+                    <img src="./assets/images/author.png" alt="M Andrews" width="50" />
+                  </div>
+
+                  <div class="wrapper">
+                    <a href="#" class="h4">M Andrews</a>
+
+                    <p class="text-sm">
+                      <time datetime="2025-12-30">Dec 30, 2025</time>
+                      <span class="separator"></span>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <time datetime="PT5M">5 min</time>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Add more service cards similarly -->
+          </div>
+
+          <button class="btn load-more">Load More</button>
+        </div>
+
+        <!--
+          - ASIDE
+        -->
+        <div class="aside">
+          <div class="topics">
+            <h2 class="h2">Technologies</h2>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="cloud-outline"></ion-icon>
+              </div>
+              <p>Cloud</p>
+            </a>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="construct-outline"></ion-icon>
+              </div>
+              <p>Automation</p>
+            </a>
+
+            <a href="#" class="topic-btn">
+              <div class="icon-box">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+              </div>
+              <p>Security</p>
+            </a>
+          </div>
+
+          <div class="tags">
+            <h2 class="h2">Tags</h2>
+
+            <div class="wrapper">
+              <button class="hashtag">#automation</button>
+              <button class="hashtag">#cloud</button>
+              <button class="hashtag">#security</button>
+              <button class="hashtag">#rmm</button>
+              <button class="hashtag">#devops</button>
+              <button class="hashtag">#monitoring</button>
+              <button class="hashtag">#innovation</button>
+              <button class="hashtag">#techeron</button>
+            </div>
+          </div>
+
+          <div class="contact">
+            <h2 class="h2">Let's Talk</h2>
+            <div class="wrapper">
+              <p>
+                Interested in our solutions? Reach out and let's discuss how Techeron can help your business grow.
+              </p>
+
+              <ul class="social-link">
+                <li>
+                  <a href="https://github.com/mandrews25" class="icon-box github" target="_blank" rel="noopener"
+                    aria-label="GitHub">
+                    <ion-icon name="logo-github"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="https://www.linkedin.com/in/mandrews25/" class="icon-box linkedin" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="mailto:andrewsrio25@gmail.com" class="icon-box email" aria-label="Email">
+                    <ion-icon name="mail-outline"></ion-icon>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="newsletter">
+            <h2 class="h2">Newsletter</h2>
+            <div class="wrapper">
+              <p>Subscribe to stay updated with Techeron's latest news and offerings.</p>
+              <form action="#">
+                <input type="email" name="email" placeholder="Email Address" required />
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 
+  <!--
+    - #FOOTER
+  -->
   <footer>
-    © 2025 Techeron
+    <div class="container">
+      <div class="wrapper">
+        <a href="#" class="footer-logo">
+          <img src="./assets/images/techeron-logo-light.svg" alt="Techeron Logo" width="150" class="logo-light" />
+          <img src="./assets/images/techeron-logo-dark.svg" alt="Techeron Logo" width="150" class="logo-dark" />
+        </a>
+        <p class="footer-text">
+          Empowering businesses with innovative tech solutions, automation, and cloud services.
+        </p>
+      </div>
+
+      <div class="wrapper">
+        <p class="footer-title">Quick Links</p>
+        <ul>
+          <li><a href="#" class="footer-link">Services</a></li>
+          <li><a href="#" class="footer-link">About Us</a></li>
+          <li><a href="#" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="wrapper">
+        <p class="footer-title">Legal Stuff</p>
+        <ul>
+          <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-link">Cookie Policy</a></li>
+          <li><a href="#" class="footer-link">Terms Of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">
+      &copy; 2025 Techeron. All rights reserved.
+    </p>
   </footer>
 
-  <script>
-    // On page load, set theme based on saved preference
-    document.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light');
-      }
-    });
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
 
-    function toggleTheme() {
-      document.body.classList.toggle('light');
-      if(document.body.classList.contains('light')) {
-        localStorage.setItem('theme', 'light');
-      } else {
-        localStorage.removeItem('theme');
-      }
-    }
-  </script>
-
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
