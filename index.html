@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Techeron | Chennai, India</title>
 
+  <!-- Google Fonts: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <!-- Font Awesome for icons -->
   <link
     rel="stylesheet"
@@ -27,13 +30,13 @@
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
       min-height: 100vh;
       background: linear-gradient(-45deg, var(--bg1), var(--bg2), #1e3a8a, #020617);
       background-size: 400% 400%;
       animation: gradientBG 12s ease infinite;
       color: var(--text-light);
-      transition: background 0.4s, color 0.4s;
+      transition: background 0.5s ease, color 0.5s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -75,12 +78,12 @@
     }
 
     .profile-container img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid currentColor;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 160px;       /* fixed width */
+      height: auto;       /* keep aspect ratio */
+      border-radius: 0;   /* remove circle */
+      object-fit: contain; /* fit entire image */
+      border: none;       /* remove border */
+      box-shadow: none;   /* remove shadow */
     }
 
     /* Content */
@@ -91,10 +94,11 @@
     }
 
     h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
       font-size: 3rem;
       margin: 0 0 8px 0;
-      letter-spacing: 1.5px;
-      font-weight: 700;
     }
 
     .location {
@@ -116,8 +120,10 @@
 
     /* Welcome message */
     .welcome {
-      font-size: 1.25rem;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 1.25rem;
       margin-bottom: 20px;
       color: var(--button-text-light);
     }
@@ -138,8 +144,10 @@
     }
 
     .contact h2 {
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
     .contact a {
@@ -245,7 +253,7 @@
 
       .profile-container img {
         width: 140px;
-        height: 140px;
+        height: auto;
       }
 
       h1 {
@@ -269,7 +277,7 @@
 
   <main>
     <div class="profile-container">
-      <img src="photo.png" alt="M Andrews Profile Picture" />
+      <img src="photo.png" alt="Profile picture of M Andrews" />
     </div>
     <div class="content">
       <h1>Techeron</h1>
@@ -286,24 +294,24 @@
 
       <div class="contact">
         <h2>Contact Me</h2>
-        <p>📧 <a href="mailto:andrewsrio25@gmail.com.com">andrewsrio25@gmail.com</a></p>
+        <p>📧 <a href="mailto:andrewsrio25@gmail.com?subject=Contact%20from%20Techeron%20Website">andrewsrio25@gmail.com</a></p>
         <p>📞 +91 6383262232</p>
       </div>
 
       <div class="links">
-        <a href="https://github.com/mandrews25" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/mandrews25" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
           <i class="fab fa-github"></i> GitHub
         </a>
-        <a href="https://www.linkedin.com/in/mandrews25/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/mandrews25/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
-        <a href="https://leetcode.com/u/Andrewsrio25/" target="_blank" rel="noopener noreferrer">
+        <a href="https://leetcode.com/u/Andrewsrio25/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile">
           <i class="fas fa-code"></i> LeetCode
         </a>
-        <a href="https://www.credly.com/users/m-andrews/badges" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.credly.com/users/m-andrews/badges" target="_blank" rel="noopener noreferrer" aria-label="Credly badges">
           <i class="fas fa-certificate"></i> Credly
         </a>
-        <a href="https://topmate.io/m_andrews" target="_blank" rel="noopener noreferrer">
+        <a href="https://topmate.io/m_andrews" target="_blank" rel="noopener noreferrer" aria-label="Topmate profile">
           <i class="fas fa-user-tie"></i> Topmate
         </a>
       </div>
@@ -315,8 +323,20 @@
   </footer>
 
   <script>
+    // On page load, set theme based on saved preference
+    document.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light');
+      }
+    });
+
     function toggleTheme() {
       document.body.classList.toggle('light');
+      if(document.body.classList.contains('light')) {
+        localStorage.setItem('theme', 'light');
+      } else {
+        localStorage.removeItem('theme');
+      }
     }
   </script>
 
