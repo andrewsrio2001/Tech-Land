@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Techeron | Chennai, India</title>
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -15,39 +15,28 @@
     :root {
       --bg1: #020617;
       --bg2: #0f172a;
-      --card-bg: rgba(255, 255, 255, 0.06);
-      --text: #ffffff;
-      --subtext: #94a3b8;
-      --button-bg: #ffffff;
-      --button-text: #020617;
-    }
-
-    body.light {
-      --bg1: #e0e7ff;
-      --bg2: #f8fafc;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --text: #020617;
-      --subtext: #475569;
-      --button-bg: #020617;
-      --button-text: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
+      --text-light: #ffffff;
+      --text-dark: #020617;
+      --subtext-light: #94a3b8;
+      --subtext-dark: #475569;
+      --button-bg-light: #ffffff;
+      --button-text-light: #020617;
+      --button-bg-dark: #111827;
+      --button-text-dark: #e0e7ff;
     }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: linear-gradient(-45deg, var(--bg1), var(--bg2), #1e3a8a, #020617);
       background-size: 400% 400%;
       animation: gradientBG 12s ease infinite;
-      color: var(--text);
+      color: var(--text-light);
       transition: background 0.4s, color 0.4s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     @keyframes gradientBG {
@@ -56,148 +45,278 @@
       100% { background-position: 0% 50%; }
     }
 
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(14px);
-      border-radius: 22px;
-      padding: 40px 30px;
-      max-width: 420px;
-      width: 90%;
+    body.light {
+      background: linear-gradient(-45deg, #e0e7ff, #f8fafc, #93c5fd, #e0e7ff);
+      color: var(--text-dark);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      gap: 60px;
+    }
+
+    body.light main {
+      color: var(--text-dark);
+    }
+
+    /* Profile image */
+    .profile-container {
+      flex: 0 0 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInZoom 1.2s ease forwards;
+    }
+
+    .profile-container img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid currentColor;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+      animation: fadeInUp 1.2s ease forwards;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0 0 8px 0;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    .location {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--subtext-light);
+    }
+
+    body.light .location {
+      color: var(--subtext-dark);
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: inherit;
+    }
+
+    /* Welcome message */
+    .welcome {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--button-text-light);
+    }
+
+    body.light .welcome {
+      color: var(--button-text-dark);
+    }
+
+    /* Contact info */
+    .contact {
+      margin-top: 30px;
+      font-size: 1rem;
+      color: var(--button-text-light);
+    }
+
+    body.light .contact {
+      color: var(--button-text-dark);
+    }
+
+    .contact h2 {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .contact a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* Social links */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      background-color: var(--button-bg-light);
+      color: var(--button-text-light);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      min-width: 130px;
+      justify-content: center;
+    }
+
+    body.light .links a {
+      background-color: var(--button-bg-dark);
+      color: var(--button-text-dark);
+      box-shadow: none;
+    }
+
+    .links a i {
+      font-size: 1.3rem;
+    }
+
+    .links a:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.35);
+    }
+
+    body.light .links a:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    footer {
       text-align: center;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-      animation: fadeUp 1s ease forwards;
-      position: relative;
+      padding: 15px 20px;
+      font-size: 0.9rem;
+      color: var(--subtext-light);
+    }
+
+    body.light footer {
+      color: var(--subtext-dark);
     }
 
     /* Toggle Button */
     .theme-toggle {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: transparent;
       border: none;
-      color: var(--text);
-      font-size: 1.2rem;
+      color: inherit;
+      font-size: 1.6rem;
       cursor: pointer;
       transition: transform 0.3s;
+      z-index: 100;
     }
 
     .theme-toggle:hover {
       transform: rotate(20deg);
     }
 
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--text);
-      margin-bottom: 15px;
-      animation: zoomIn 1s ease forwards;
+    /* Animations */
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
-    h1 {
-      font-size: 2.3rem;
-      margin: 10px 0 6px;
+    @keyframes fadeInZoom {
+      from {opacity: 0; transform: scale(0.85);}
+      to {opacity: 1; transform: scale(1);}
     }
 
-    .location {
-      font-size: 0.95rem;
-      color: var(--subtext);
-      margin-bottom: 22px;
-    }
+    /* Responsive */
+    @media (max-width: 720px) {
+      main {
+        flex-direction: column;
+        padding: 30px 15px;
+        gap: 35px;
+      }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--text);
-      margin-bottom: 30px;
-    }
+      .profile-container {
+        flex: none;
+        margin-bottom: 20px;
+      }
 
-    .links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      text-decoration: none;
-      background: var(--button-bg);
-      color: var(--button-text);
-      margin: 12px 0;
-      padding: 13px;
-      border-radius: 14px;
-      font-weight: 600;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      .profile-container img {
+        width: 140px;
+        height: 140px;
+      }
 
-    .links a:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 18px 30px rgba(0,0,0,0.4);
-    }
+      h1 {
+        font-size: 2.5rem;
+      }
 
-    footer {
-      margin-top: 26px;
-      font-size: 0.85rem;
-      color: var(--subtext);
-    }
+      .links {
+        justify-content: center;
+      }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
+      .links a {
+        min-width: 140px;
+        padding: 12px 18px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-      🌓
-    </button>
+  <button class="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode" onclick="toggleTheme()">🌓</button>
 
-    <img src="profile.png" alt="M Andrews" class="profile-img" />
-
-    <h1>Techeron</h1>
-    <div class="location">Chennai, India 🇮🇳</div>
-
-    <p>
-      Technology enthusiast focused on coding, automation, and continuous learning.
-      Building skills, solving real-world problems, and growing every day.
-    </p>
-
-    <div class="links">
-      <a href="https://github.com/mandrews25" target="_blank">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-
-      <a href="https://www.linkedin.com/in/mandrews25/" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-
-      <a href="https://leetcode.com/u/Andrewsrio25/" target="_blank">
-        <i class="fas fa-code"></i> LeetCode
-      </a>
-
-      <a href="https://www.credly.com/users/m-andrews/badges" target="_blank">
-        <i class="fas fa-certificate"></i> Credly
-      </a>
-
-      <a href="https://topmate.io/m_andrews" target="_blank">
-        <i class="fas fa-user-tie"></i> Topmate
-      </a>
+  <main>
+    <div class="profile-container">
+      <img src="photo.png" alt="M Andrews Profile Picture" />
     </div>
+    <div class="content">
+      <h1>Techeron</h1>
+      <div class="location">Chennai, India 🇮🇳</div>
 
-    <footer>
-      © 2025 Techeron
-    </footer>
-  </div>
+      <p class="welcome">
+        Welcome to Techeron! Glad you're here. Let’s connect and build something amazing together.
+      </p>
+
+      <p>
+        Technology enthusiast focused on coding, automation, and continuous learning.
+        Building skills, solving real-world problems, and growing every day.
+      </p>
+
+      <div class="contact">
+        <h2>Contact Me</h2>
+        <p>📧 <a href="mailto:andrewsrio25@gmail.com.com">andrewsrio25@gmail.com</a></p>
+        <p>📞 +91 6383262232</p>
+      </div>
+
+      <div class="links">
+        <a href="https://github.com/mandrews25" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/mandrews25/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://leetcode.com/u/Andrewsrio25/" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-code"></i> LeetCode
+        </a>
+        <a href="https://www.credly.com/users/m-andrews/badges" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-certificate"></i> Credly
+        </a>
+        <a href="https://topmate.io/m_andrews" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-user-tie"></i> Topmate
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Techeron
+  </footer>
 
   <script>
     function toggleTheme() {
-      document.body.classList.toggle("light");
+      document.body.classList.toggle('light');
     }
   </script>
 
